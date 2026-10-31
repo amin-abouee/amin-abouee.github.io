@@ -79,9 +79,9 @@ export const DATA = {
             "Contributed to a shared project with Airbus, fusing VIO estimates with depth and mapping data for 3D scene reconstruction and safe perception-driven maneuvering under real-time compute constraints.",
         },
         {
-          title: "AI-driven visual odometry",
+          title: "Semi-supervised visual odometry",
           description:
-            "Built a semi-supervised visual odometry pipeline in Python and CUDA, combining learning-based feature extraction with differentiable bundle adjustment to improve end-to-end localization accuracy on resource-constrained embedded hardware.",
+            "Built a semi-supervised deep visual odometry pipeline in Python and CUDA, combining learning-based feature extraction with differentiable bundle adjustment on embedded hardware. The CVPRW 2024 paper trains it on estimated optical flow — only pose ground truth and raw images, no dense depth — and reports state-of-the-art KITTI results.",
         },
       ],
       description:
