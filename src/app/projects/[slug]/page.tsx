@@ -15,6 +15,7 @@ import {
 } from "@/data/apex-solver-performance";
 import { apexCrates, type CratePage } from "@/data/apex-crates";
 import { apexSlamPage } from "@/data/apex-slam";
+import VideoGallery from "@/components/video-gallery";
 
 const cratePages: Record<string, CratePage> = {
   ...apexCrates,
@@ -336,6 +337,7 @@ function CrateDetail({ page, slug }: { page: CratePage; slug: string }) {
           {section.intro && (
             <p className="text-xs text-muted-foreground sm:text-sm">{section.intro}</p>
           )}
+          {section.video && <VideoGallery videos={[section.video]} />}
           <div className="overflow-x-auto rounded-xl border border-border">
             <table className="w-full min-w-[640px] text-foreground">
               <thead>

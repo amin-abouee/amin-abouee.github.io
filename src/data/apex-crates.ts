@@ -4,9 +4,12 @@
 // NOTE: apex-io's README still says 0.4.0; the crate is at 0.5.0 (CHANGELOG
 // "Unreleased" section documents the VRS / ROS 1–2 overhaul and bag_merge).
 
+import type { WorkVideo } from "@/components/video-gallery";
+
 export type CrateSection = {
   heading: string;
   intro?: string;
+  video?: WorkVideo;
   columns: string[];
   rows: string[][];
   note?: string;

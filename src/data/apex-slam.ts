@@ -42,6 +42,12 @@ export const apexSlamPage: CratePage = {
       heading: "Visual-inertial odometry, full per-sequence results",
       intro:
         "ATE RMSE per sequence (SE(3)-aligned, scale not fitted), monocular and stereo, on all 11 EuRoC MAV sequences and all 6 TUM VI room sequences, against the published results of DM-VIO, Basalt and OKVIS2-X.",
+      video: {
+        title: "Stereo visual-inertial odometry",
+        description:
+          "A full stereo run in rerun: trajectory and landmark map, both camera streams, and live timing, ATE and bias panels.",
+        src: "/videos/apex-vio-stereo.mp4",
+      },
       columns: ["Sequence", "Mono", "Stereo", "DM-VIO", "Basalt", "OKVIS2-X", "ms/frame"],
       rows: [
         ["MH_01_easy", "0.149 m", "0.051 m", "0.065 m", "0.070 m", "0.050 m", "13.9 / 18.5"],
@@ -71,6 +77,12 @@ export const apexSlamPage: CratePage = {
       heading: "Hilti 2023 handheld: LiDAR and LiDAR-visual",
       intro:
         "Control-point RMSE per sequence over the 12 handheld sequences with published control points, against FAST-LIVO2 and Voxel-SLAM run on the same bags (Hilti 2023 scoring, 1200 points maximum).",
+      video: {
+        title: "LiDAR-inertial-visual odometry",
+        description:
+          "LIVO on a Hilti 2023 handheld sequence: the LiDAR map coloured by camera depth, the fisheye stream, and live timing and control-point panels.",
+        src: "/videos/apex-livo.mp4",
+      },
       columns: ["Sequence", "APEX LIO", "APEX LIVO", "FAST-LIVO2", "Voxel-SLAM"],
       rows: [
         ["site1_handheld_1", "8.5 cm", "5.0 cm", "32.1 cm", "27.5 cm"],
