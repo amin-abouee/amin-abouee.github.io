@@ -1,0 +1,14 @@
+---
+title: "APEX Solver — VIO Integration"
+publishedAt: "2026-02-01"
+author: "Amin Abouee"
+summary: "Released a Rust-based tightly-coupled visual-inertial odometry pipeline built on APEX Solver, with IMU preintegration on Lie-group manifolds (SE(3)/SO(3))."
+---
+
+APEX Solver now ships a tightly-coupled visual-inertial odometry (VIO) pipeline written in pure Rust.
+
+The pipeline integrates IMU preintegration directly on Lie-group manifolds — SE(3) and SO(3) — so camera and IMU residuals are optimized jointly in a single factor graph. This keeps the estimator consistent across bias jumps and fast enough for embedded targets.
+
+As always, the goal is a perception-grade solver you can actually deploy: deterministic, dependency-light, and benchmarked against Ceres Solver and GTSAM.
+
+Try it out and file issues on [GitHub](https://github.com/aabouee/apex-solver).

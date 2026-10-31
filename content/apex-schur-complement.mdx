@@ -1,0 +1,14 @@
+---
+title: "APEX Solver — Schur Complement Improvements"
+publishedAt: "2026-01-15"
+author: "Amin Abouee"
+summary: "A comprehensive refactoring pass on APEX Solver: improved the implicit (PCG) and explicit (Cholesky) Schur complement solvers and resolved every clippy warning."
+---
+
+A comprehensive refactoring pass on APEX Solver landed this month.
+
+Both Schur complement paths were reworked and benchmarked — the implicit solver (preconditioned conjugate gradient) and the explicit solver (sparse Cholesky) — eliminating redundant rewrites in the reduction and back-substitution stages that SLAM-style problems spend most of their time in.
+
+The crate is also now fully `clippy::pedantic`-clean, which keeps the factor-graph internals honest as the API grows.
+
+For the details, see the repository: [aabouee/apex-solver](https://github.com/aabouee/apex-solver).
