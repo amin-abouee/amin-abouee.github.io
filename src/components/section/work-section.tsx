@@ -36,7 +36,7 @@ export default function WorkSection() {
     <Accordion
       type="single"
       collapsible
-      // the work item with demo videos (ART) starts expanded
+      // the most recent work item with demo videos starts expanded
       defaultValue={DATA.work.find((w) => w.videos.length > 0)?.company}
       className="w-full grid gap-6"
     >

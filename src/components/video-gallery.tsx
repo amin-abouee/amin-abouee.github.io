@@ -51,7 +51,7 @@ export default function VideoGallery({
               <video
                 src={video.src}
                 poster={video.src.replace(/\.mp4$/, ".jpg")}
-                className="aspect-video w-full object-cover transition-transform duration-300 group-hover:scale-[1.02]"
+                className="aspect-video w-full bg-black object-contain transition-transform duration-300 group-hover:scale-[1.02]"
                 muted
                 loop
                 playsInline

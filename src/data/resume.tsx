@@ -61,7 +61,14 @@ export const DATA = {
       logoUrl: "/logos/spleenlab.png",
       start: "Nov 2021",
       end: null,
-      videos: [],
+      videos: [
+        {
+          title: "DPVO reconstruction",
+          description:
+            "Coloured point-cloud reconstruction and estimated trajectory from a DPVO run on outdoor driving data.",
+          src: "/videos/dpvo.mp4",
+        },
+      ],
       highlights: [
         {
           title: "Visual-IMU-LiDAR SLAM for a UGV",
