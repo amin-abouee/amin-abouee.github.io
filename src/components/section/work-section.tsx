@@ -10,6 +10,7 @@ import {
 import { DATA } from "@/data/resume";
 import { ChevronDown, ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
+import VideoGallery from "@/components/video-gallery";
 
 function LogoImage({ src, alt }: { src: string; alt: string }) {
   const [imageError, setImageError] = useState(false);
@@ -32,7 +33,13 @@ function LogoImage({ src, alt }: { src: string; alt: string }) {
 
 export default function WorkSection() {
   return (
-    <Accordion type="single" collapsible className="w-full grid gap-6">
+    <Accordion
+      type="single"
+      collapsible
+      // the work item with demo videos (ART) starts expanded
+      defaultValue={DATA.work.find((w) => w.videos.length > 0)?.company}
+      className="w-full grid gap-6"
+    >
       {DATA.work.map((work) => (
         <AccordionItem
           key={work.company}
@@ -76,8 +83,9 @@ export default function WorkSection() {
               </div>
             </div>
           </AccordionTrigger>
-          <AccordionContent className="p-0 ml-13 text-xs sm:text-sm text-muted-foreground">
-            {work.description}
+          <AccordionContent className="p-0 ml-13 flex flex-col gap-3 text-xs sm:text-sm text-muted-foreground">
+            <p>{work.description}</p>
+            {work.videos.length > 0 && <VideoGallery videos={work.videos} />}
           </AccordionContent>
         </AccordionItem>
       ))}

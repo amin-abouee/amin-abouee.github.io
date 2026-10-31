@@ -61,6 +61,7 @@ export const DATA = {
       logoUrl: "",
       start: "Nov 2021",
       end: null,
+      videos: [],
       description:
         "Engineered a visual-IMU-LiDAR SLAM system for an unmanned ground vehicle (UGV), sustaining accurate, drift-free localization in visually repetitive, GPS-denied terrain through multi-sensor fusion and place recognition. Architected a production-grade optimization-based visual-inertial odometry (VIO) system in modern C++, delivering reliable autonomous navigation in GNSS-denied environments, deployed on NVIDIA Jetson Orin under Docker with ROS 2 and DDS middleware. Contributed to a shared project with Airbus on 3D scene reconstruction and obstacle avoidance, fusing VIO estimates with depth and mapping data to enable safe perception-driven maneuvering under real-time compute constraints. Built an AI-driven, semi-supervised visual odometry pipeline in Python and CUDA, integrating learning-based feature extraction with differentiable bundle adjustment to improve end-to-end localization accuracy on resource-constrained embedded hardware.",
     },
@@ -72,6 +73,7 @@ export const DATA = {
       logoUrl: "",
       start: "Mar 2020",
       end: "Sep 2021",
+      videos: [],
       description:
         "Designed a multilayer hybrid visual SLAM system combining CNN-based relative pose and depth estimation with photometric bundle adjustment.",
     },
@@ -83,8 +85,28 @@ export const DATA = {
       logoUrl: "",
       start: "Nov 2015",
       end: "Feb 2020",
+      videos: [
+        {
+          title: "Multi-camera feature & featureless tracking",
+          description:
+            "A multi-camera AR setup: the C++ tracker fuses frames from the calibrated cameras to estimate 6-DoF pose, overlays the CAD model on the live view (video in video) and streams pose updates on the console. Tracking runs on feature correspondences when texture is available and switches to featureless alignment when it is not.",
+          src: "/videos/modular-tracking.mp4",
+        },
+        {
+          title: "Modular C++ tracker",
+          description:
+            "The tracking library is deliberately modular — feature-based, model-based and edge-based tracker components are interchangeable behind a common 6-DoF estimation loop. The clip stitches together the full run and the interim status (German: \"Zwischenstand\"), holding pose on a sheet-metal car part.",
+          src: "/videos/inside-out-weak-texture.mp4",
+        },
+        {
+          title: "Textureless, edge-based tracking",
+          description:
+            "Objects without surface texture — printed plans, uncoated parts — are tracked purely on their edges and contours, inside out: the camera moves freely while CAD modules of an industrial plant stay anchored to the plan. No markers, no fiducials.",
+          src: "/videos/multi-camera-video-in-video.mp4",
+        },
+      ],
       description:
-        "Developed a real-time C++ tracking library for 6-DoF pose estimation, with multiple alignment strategies and motion models, deployed in commercial AR products.",
+        "Developed a real-time C++ tracking library for 6-DoF pose estimation, with multiple alignment strategies and motion models, deployed in commercial AR products. The architecture was deliberately modular: tracker components are interchangeable, so model-based and feature-based tracking could be combined per use case. Three focus areas below.",
     },
   ],
   education: [
