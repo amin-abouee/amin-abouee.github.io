@@ -85,6 +85,23 @@ export default function WorkSection() {
           </AccordionTrigger>
           <AccordionContent className="p-0 ml-13 flex flex-col gap-3 text-xs sm:text-sm text-muted-foreground">
             <p>{work.description}</p>
+            {work.highlights.length > 0 && (
+              <div className="flex flex-col gap-3">
+                {work.highlights.map((highlight, index) => (
+                  <div key={highlight.title} className="flex gap-3">
+                    <span className="pt-0.5 font-mono text-xs font-medium text-muted-foreground">
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+                    <div className="flex min-w-0 flex-col gap-0.5">
+                      <h3 className="text-sm font-semibold">{highlight.title}</h3>
+                      <p className="text-xs leading-relaxed text-muted-foreground">
+                        {highlight.description}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
             {work.videos.length > 0 && <VideoGallery videos={work.videos} />}
           </AccordionContent>
         </AccordionItem>
