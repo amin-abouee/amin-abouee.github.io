@@ -58,22 +58,45 @@ export const DATA = {
       badges: [],
       location: "Jena, Germany",
       title: "SLAM / State Estimation Expert — Senior Researcher and Developer",
-      logoUrl: "",
+      logoUrl: "/logos/spleenlab.png",
       start: "Nov 2021",
       end: null,
       videos: [],
+      highlights: [
+        {
+          title: "Visual-IMU-LiDAR SLAM for a UGV",
+          description:
+            "Engineered a multi-sensor SLAM system for an unmanned ground vehicle, fusing camera, IMU and LiDAR with place recognition to sustain accurate, drift-free localization in visually repetitive, GPS-denied terrain.",
+        },
+        {
+          title: "Production visual-inertial odometry",
+          description:
+            "Architected a production-grade optimization-based VIO system in modern C++, deployed on NVIDIA Jetson Orin under Docker with ROS 2 and DDS middleware, delivering reliable autonomous navigation in GNSS-denied environments.",
+        },
+        {
+          title: "3D reconstruction and obstacle avoidance (Airbus)",
+          description:
+            "Contributed to a shared project with Airbus, fusing VIO estimates with depth and mapping data for 3D scene reconstruction and safe perception-driven maneuvering under real-time compute constraints.",
+        },
+        {
+          title: "AI-driven visual odometry",
+          description:
+            "Built a semi-supervised visual odometry pipeline in Python and CUDA, combining learning-based feature extraction with differentiable bundle adjustment to improve end-to-end localization accuracy on resource-constrained embedded hardware.",
+        },
+      ],
       description:
-        "Engineered a visual-IMU-LiDAR SLAM system for an unmanned ground vehicle (UGV), sustaining accurate, drift-free localization in visually repetitive, GPS-denied terrain through multi-sensor fusion and place recognition. Architected a production-grade optimization-based visual-inertial odometry (VIO) system in modern C++, delivering reliable autonomous navigation in GNSS-denied environments, deployed on NVIDIA Jetson Orin under Docker with ROS 2 and DDS middleware. Contributed to a shared project with Airbus on 3D scene reconstruction and obstacle avoidance, fusing VIO estimates with depth and mapping data to enable safe perception-driven maneuvering under real-time compute constraints. Built an AI-driven, semi-supervised visual odometry pipeline in Python and CUDA, integrating learning-based feature extraction with differentiable bundle adjustment to improve end-to-end localization accuracy on resource-constrained embedded hardware.",
+        "Multi-sensor localization and mapping for an unmanned ground vehicle. Four focus areas below.",
     },
     {
       company: "Denso ADAS",
       badges: [],
       location: "Lindau, Germany",
       title: "Computer Vision Expert — Researcher and Developer",
-      logoUrl: "",
+      logoUrl: "/logos/denso-adas.png",
       start: "Mar 2020",
       end: "Sep 2021",
       videos: [],
+      highlights: [],
       description:
         "Designed a multilayer hybrid visual SLAM system combining CNN-based relative pose and depth estimation with photometric bundle adjustment.",
     },
@@ -82,7 +105,7 @@ export const DATA = {
       badges: [],
       location: "Weilheim in Oberbayern, Germany",
       title: "Computer Vision Expert — Researcher and Developer",
-      logoUrl: "",
+      logoUrl: "/logos/art.png",
       start: "Nov 2015",
       end: "Feb 2020",
       videos: [
@@ -105,6 +128,7 @@ export const DATA = {
           src: "/videos/multi-camera-video-in-video.mp4",
         },
       ],
+      highlights: [],
       description:
         "Developed a real-time C++ tracking library for 6-DoF pose estimation, with multiple alignment strategies and motion models, deployed in commercial AR products. The architecture was deliberately modular: tracker components are interchangeable, so model-based and feature-based tracking could be combined per use case. Three focus areas below.",
     },
@@ -114,7 +138,7 @@ export const DATA = {
       school: "Technical University of Munich",
       href: "https://www.tum.de",
       degree: "M.Sc. Computer Science, Mathematics and Informatics",
-      logoUrl: "",
+      logoUrl: "/logos/tum.png",
       start: "2011",
       end: "2015",
     },
@@ -122,19 +146,19 @@ export const DATA = {
       school: "Islamic Azad University of Mashhad",
       href: "https://mshdiau.ac.ir",
       degree: "B.Sc. Computer Engineering",
-      logoUrl: "",
+      logoUrl: "/logos/iau-mashhad.png",
       start: "2006",
       end: "2010",
     },
   ],
   projects: [
     {
-      title: "APEX Solver",
-      href: "https://github.com/aabouee/apex-solver",
+      title: "apex solver",
+      href: "/projects/apex-solver",
       dates: "2025 - Present",
       active: true,
       description:
-        "Perception-grade nonlinear least-squares optimizer in pure Rust for factor-graph optimization in robotics — bundle adjustment, pose-graph optimization and sensor fusion. Outperforms Ceres Solver and GTSAM by 25% on bundle adjustment and humanoid pose-graph benchmarks.",
+        "High-performance nonlinear least-squares solver in pure Rust for factor-graph optimization — bundle adjustment, pose-graph optimization and sensor fusion. Manifold-aware Lie groups with analytic Jacobians, ~40 factors, explicit & implicit (matrix-free) Schur solvers. Fastest on 5 of 8 pose-graph benchmarks vs Ceres, GTSAM, g2o, factrs and tiny-solver; only solver besides g2o to finish the 5 M-observation Venice BA within the time limit. **Details & benchmarks →**",
       technologies: [
         "Rust",
         "Nonlinear Optimization",
