@@ -10,7 +10,7 @@ export const DATA = {
   description:
     "Senior Robotics & Computer Vision Engineer — SLAM, visual-inertial odometry and state estimation for autonomous systems.",
   summary:
-    "I am a robotics and computer vision engineer with 10+ years of experience building real-time autonomy and perception stacks for autonomous vehicles and robotic platforms across aerial, ground, and automotive domains. My work focuses on optimization-based [SLAM](#publications), visual-inertial odometry (VIO), 3D mapping, re-localization and obstacle avoidance, shipped in production C++ on NVIDIA Jetson with ROS 2.\n\nI am the author of [APEX Solver](https://github.com/aabouee/apex-solver), an open-source nonlinear least-squares solver written in Rust, designed for factor-graph optimization tasks in robotics — bundle adjustment, pose-graph optimization and sensor fusion. My interests sit between geometry, nonlinear optimization and learning-based methods: making state estimation more accurate, efficient, and deployable on resource-constrained platforms.",
+    "I am a robotics and computer vision engineer with 10+ years of experience building real-time autonomy and perception stacks for autonomous vehicles and robotic platforms across aerial, ground, and automotive domains. My work focuses on optimization-based SLAM, visual-inertial odometry (VIO), 3D mapping, re-localization and obstacle avoidance — shipped in production C++ on NVIDIA Jetson with ROS 2, from automotive surround perception to AR tracking and UAV navigation.\n\nAlongside that, I am building APEX, my personal open source project: a growing family of Rust crates for nonlinear least squares estimation, from bundle adjustment and pose graph optimization to camera models, Lie group manifolds and robotics data input and output. It turns my hands on experience with nonlinear least squares, robust losses and manifold aware optimization into libraries others can use. My interests sit between geometry, nonlinear optimization and learning based methods: making state estimation more accurate, efficient, and deployable on resource constrained platforms.",
   avatarUrl: "/me.jpg",
   skills: [
     { name: "C++ (11–20)" },
@@ -40,13 +40,13 @@ export const DATA = {
     social: {
       GitHub: {
         name: "GitHub",
-        url: "https://github.com/aabouee",
+        url: "https://github.com/amin-abouee",
         icon: Icons.github,
         navbar: true,
       },
       LinkedIn: {
         name: "LinkedIn",
-        url: "https://www.linkedin.com/in/amin-abouee",
+        url: "https://www.linkedin.com/in/amin-abouee-26aa665b/",
         icon: Icons.linkedin,
         navbar: true,
       },
