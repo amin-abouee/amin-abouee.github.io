@@ -8,7 +8,15 @@ import Link from "next/link";
 import { useState } from "react";
 import Markdown from "react-markdown";
 
-function ProjectImage({ src, alt }: { src: string; alt: string }) {
+function ProjectImage({
+  src,
+  alt,
+  darkSrc,
+}: {
+  src: string;
+  alt: string;
+  darkSrc?: string;
+}) {
   const [imageError, setImageError] = useState(false);
 
   if (!src || imageError) {
@@ -16,12 +24,22 @@ function ProjectImage({ src, alt }: { src: string; alt: string }) {
   }
 
   return (
-    <img
-      src={src}
-      alt={alt}
-      className="w-full h-48 object-cover"
-      onError={() => setImageError(true)}
-    />
+    <div className="flex h-48 w-full items-center justify-center bg-white dark:bg-black">
+      <img
+        src={src}
+        alt={alt}
+        className={`h-full w-full object-contain ${darkSrc ? "dark:hidden" : ""}`}
+        onError={() => setImageError(true)}
+      />
+      {darkSrc ? (
+        <img
+          src={darkSrc}
+          alt={alt}
+          className="hidden h-full w-full object-contain dark:block"
+          onError={() => setImageError(true)}
+        />
+      ) : null}
+    </div>
   );
 }
 
@@ -33,6 +51,7 @@ interface Props {
   tags: readonly string[];
   link?: string;
   image?: string;
+  imageDark?: string;
   video?: string;
   links?: readonly {
     icon: React.ReactNode;
@@ -50,10 +69,12 @@ export function ProjectCard({
   tags,
   link,
   image,
+  imageDark,
   video,
   links,
   className,
 }: Props) {
+  const isInternal = href?.startsWith("/");
   return (
     <div
       className={cn(
@@ -64,8 +85,7 @@ export function ProjectCard({
       <div className="relative shrink-0">
         <Link
           href={href || "#"}
-          target="_blank"
-          rel="noopener noreferrer"
+          {...(isInternal ? {} : { target: "_blank", rel: "noopener noreferrer" })}
           className="block"
         >
           {video ? (
@@ -78,7 +98,7 @@ export function ProjectCard({
               className="w-full h-48 object-cover"
             />
           ) : image ? (
-            <ProjectImage src={image} alt={title} />
+            <ProjectImage src={image} alt={title} darkSrc={imageDark} />
           ) : (
             <div className="w-full h-48 bg-muted" />
           )}
@@ -113,8 +133,7 @@ export function ProjectCard({
           </div>
           <Link
             href={href || "#"}
-            target="_blank"
-            rel="noopener noreferrer"
+            {...(isInternal ? {} : { target: "_blank", rel: "noopener noreferrer" })}
             className="text-muted-foreground hover:text-foreground transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-sm"
             aria-label={`Open ${title}`}
           >
