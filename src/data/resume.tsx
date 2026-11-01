@@ -70,15 +70,15 @@ export const DATA = {
       videos: [],
       highlights: [
         {
-          title: "Visual-IMU-LiDAR SLAM for a UGV",
+          title: "Navigation for a UGV",
           description:
-            "Engineered a multi-sensor SLAM system for an unmanned ground vehicle, fusing camera, IMU and LiDAR with place recognition to sustain accurate, drift-free localization in visually repetitive, GPS-denied terrain.",
+            "Engineered a visual-inertial navigation system for an unmanned ground vehicle, combining multi-sensor fusion with place recognition to sustain accurate, drift-free localization in visually repetitive, GPS-denied terrain.",
           src: "",
         },
         {
-          title: "Production visual-inertial odometry",
+          title: "Production visual-inertial odometry for a UAV",
           description:
-            "Architected a production-grade optimization-based VIO system in modern C++, deployed on NVIDIA Jetson Orin under Docker with ROS 2 and DDS middleware, delivering reliable autonomous navigation in GNSS-denied environments.",
+            "Architected a production-grade optimization-based VIO system for an unmanned aerial vehicle in modern C++, deployed on NVIDIA Jetson Orin under Docker with ROS 2 and DDS middleware, delivering reliable autonomous navigation in GNSS-denied environments.",
           src: "",
         },
         {
