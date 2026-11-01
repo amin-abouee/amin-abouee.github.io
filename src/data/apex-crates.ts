@@ -1,8 +1,8 @@
 // Detail-page content for the three workspace crates, transcribed from their
 // READMEs and source trees (checked against Cargo.toml + src/ exports):
 //   apex-camera-models 0.4.0 · apex-manifolds 0.4.0 · apex-io 0.5.0.
-// NOTE: apex-io's README still says 0.4.0; the crate is at 0.5.0 (CHANGELOG
-// "Unreleased" section documents the VRS / ROS 1–2 overhaul and bag_merge).
+// NOTE: apex-io's README still says 0.4.0; the crate is at 0.5.0 (its
+// CHANGELOG "Unreleased" section documents the VRS / ROS 1–2 overhaul).
 
 import type { WorkVideo } from "@/components/video-gallery";
 
@@ -231,7 +231,7 @@ export const apexCrates: Record<string, CratePage> = {
     ],
     overview: [
       "File I/O for the data that robotics actually produces: pose graphs (G2O, TORO, BAL), ROS 1 .bag files, ROS 2 bags (SQLite3 and MCAP storage), Meta VRS / Project Aria recordings, and TUM / ASL-EuRoC trajectories — with topic and time-range filtering, raw and deserialized APIs, and a schema-driven ROS 1 ⇄ ROS 2 transcoder that needs no typed message structs.",
-      "The crate has been unsafe-free since 0.2.0: the four memmap2 sites became buffered whole-file reads (one allocation, no page-fault overhead, no soundness footgun), and large files are parsed in parallel with rayon. Since 0.5.0 a format-agnostic BagReader / BagIterator gives one pull API over every container, so a VIO front end can keep state between samples, and a bag_merge tool joins recordings.",
+      "The crate has been unsafe-free since 0.2.0: the four memmap2 sites became buffered whole-file reads (one allocation, no page-fault overhead, no soundness footgun), and large files are parsed in parallel with rayon. Since 0.5.0 a format-agnostic BagReader / BagIterator gives one pull API over every container, so a VIO front end can keep state between samples.",
     ],
     features: [
       {
@@ -265,9 +265,9 @@ export const apexCrates: Record<string, CratePage> = {
           "Async topic listener for running ROS 2 systems with configurable QoS; ROS 2 topic names are converted to DDS names automatically (rt/...).",
       },
       {
-        title: "Twelve CLI binaries",
+        title: "Eleven CLI binaries",
         detail:
-          "Inspect, filter, convert, merge and verify bags; export topics to CSV/PNG; generate demo bags; download benchmark datasets; dump VRS — all interoperable with the ros2 bag CLI.",
+          "Inspect, filter, convert and verify bags; export topics to CSV/PNG; generate demo bags; download benchmark datasets; dump VRS — all interoperable with the ros2 bag CLI.",
       },
     ],
     sections: [
@@ -309,7 +309,6 @@ export const apexCrates: Record<string, CratePage> = {
           ["bag_info", "container, size, duration and per-topic table — index/summary only, never decodes messages", "rosbag"],
           ["bag_filter", "stream-copy any container with topic/time filtering and compression; memory independent of bag size", "rosbag, cli"],
           ["bag_convert", "ROS 1 ⇄ ROS 2 (or bare MCAP), re-encoding each topic from its message definition", "rosbag, cli"],
-          ["bag_merge", "merge several bags into one", "rosbag, cli"],
           ["bag_verify", "digest per (timestamp, canonical CDR), so container/encoding/seq differences are ignored", "rosbag, cli"],
           ["extract_topic_data", "export any topic to CSV, image topics to PNG frames", "rosbag"],
           ["write_dummy_bag", "generate a demo bag with 29+ message types", "rosbag"],
