@@ -11,6 +11,7 @@ import { DATA } from "@/data/resume";
 import { ChevronDown, ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import VideoGallery from "@/components/video-gallery";
+import InlineVideo from "@/components/inline-video";
 
 function LogoImage({ src, alt }: { src: string; alt: string }) {
   const [imageError, setImageError] = useState(false);
@@ -92,11 +93,16 @@ export default function WorkSection() {
                     <span className="pt-0.5 font-mono text-xs font-medium text-muted-foreground">
                       {String(index + 1).padStart(2, "0")}
                     </span>
-                    <div className="flex min-w-0 flex-col gap-0.5">
+                    <div className="flex min-w-0 flex-1 flex-col gap-0.5">
                       <h3 className="text-sm font-semibold">{highlight.title}</h3>
                       <p className="text-xs leading-relaxed text-muted-foreground">
                         {highlight.description}
                       </p>
+                      {highlight.src && (
+                        <div className="mt-2">
+                          <InlineVideo src={highlight.src} title={highlight.title} />
+                        </div>
+                      )}
                     </div>
                   </div>
                 ))}

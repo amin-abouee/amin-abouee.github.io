@@ -44,3 +44,6 @@ next-env.d.ts
 
 # large original demo videos (compressed copies live in public/videos)
 /video/
+
+# raw generated source art (processed icon copies live in public/)
+/image/

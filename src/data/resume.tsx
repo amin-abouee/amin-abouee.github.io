@@ -61,34 +61,31 @@ export const DATA = {
       logoUrl: "/logos/spleenlab.png",
       start: "Nov 2021",
       end: null,
-      videos: [
-        {
-          title: "DPVO reconstruction",
-          description:
-            "Coloured point-cloud reconstruction and estimated trajectory from a DPVO run on outdoor driving data.",
-          src: "/videos/dpvo.mp4",
-        },
-      ],
+      videos: [],
       highlights: [
         {
           title: "Visual-IMU-LiDAR SLAM for a UGV",
           description:
             "Engineered a multi-sensor SLAM system for an unmanned ground vehicle, fusing camera, IMU and LiDAR with place recognition to sustain accurate, drift-free localization in visually repetitive, GPS-denied terrain.",
+          src: "",
         },
         {
           title: "Production visual-inertial odometry",
           description:
             "Architected a production-grade optimization-based VIO system in modern C++, deployed on NVIDIA Jetson Orin under Docker with ROS 2 and DDS middleware, delivering reliable autonomous navigation in GNSS-denied environments.",
+          src: "",
         },
         {
           title: "3D reconstruction and obstacle avoidance (Airbus)",
           description:
             "Contributed to a shared project with Airbus, fusing VIO estimates with depth and mapping data for 3D scene reconstruction and safe perception-driven maneuvering under real-time compute constraints.",
+          src: "",
         },
         {
           title: "Semi-supervised visual odometry",
           description:
             "Built a semi-supervised deep visual odometry pipeline in Python and CUDA, combining learning-based feature extraction with differentiable bundle adjustment on embedded hardware. The CVPRW 2024 paper trains it on estimated optical flow — only pose ground truth and raw images, no dense depth — and reports state-of-the-art KITTI results.",
+          src: "/videos/02_slam_pointcloud_map.mp4",
         },
       ],
       description:
