@@ -33,7 +33,7 @@ export const DATA = {
     },
     {
       category: "Libraries & tools",
-      items: ["ROS", "OpenCV", "Eigen", "PCL", "Ceres Solver", "GTSAM", "Git & CI/CD"],
+      items: ["ROS", "OpenCV", "Eigen", "Ceres Solver", "GTSAM", "Git & CI/CD"],
     },
   ],
   navbar: [
