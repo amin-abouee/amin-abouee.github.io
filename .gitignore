@@ -47,3 +47,9 @@ next-env.d.ts
 
 # raw generated source art (processed icon copies live in public/)
 /image/
+
+# demo videos are hosted on Cloudflare R2 (see src/data/media.ts)
+/public/videos/
+
+# wrangler local state
+/.wrangler/
