@@ -3,6 +3,7 @@
 // (Hilti 2023 LIO / LIVO). High-level only: the codebase is private.
 
 import type { CratePage } from "@/data/apex-crates";
+import { videoSrc } from "@/data/media";
 
 export const apexSlamPage: CratePage = {
   title: "apex slam",
@@ -46,7 +47,7 @@ export const apexSlamPage: CratePage = {
         title: "Stereo visual-inertial odometry",
         description:
           "A full stereo run in rerun: trajectory and landmark map, both camera streams, and live timing, ATE and bias panels.",
-        src: "/videos/apex-slam-vio-stereo.mp4",
+        src: videoSrc("apex-slam-vio-stereo"),
       },
       columns: ["Sequence", "Mono", "Stereo", "DM-VIO", "Basalt", "OKVIS2-X", "ms/frame"],
       rows: [
@@ -81,7 +82,7 @@ export const apexSlamPage: CratePage = {
         title: "LiDAR-inertial-visual odometry",
         description:
           "LIVO on a Hilti 2023 handheld sequence: the LiDAR map coloured by camera depth, the fisheye stream, and live timing and control-point panels.",
-        src: "/videos/apex-slam-livo-hilti.mp4",
+        src: videoSrc("apex-slam-livo-hilti"),
       },
       columns: ["Sequence", "APEX LIO", "APEX LIVO", "FAST-LIVO2", "Voxel-SLAM"],
       rows: [
