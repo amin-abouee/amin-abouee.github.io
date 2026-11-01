@@ -3,6 +3,7 @@
 
 export const apexSolver = {
   title: "apex solver",
+  version: "1.5.0",
   tagline:
     "A high-performance Rust library for nonlinear least squares optimization in SLAM & Computer Vision.",
   overview: [

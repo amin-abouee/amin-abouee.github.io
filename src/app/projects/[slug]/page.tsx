@@ -411,6 +411,9 @@ export default async function ProjectDetail({
         <div className="flex flex-wrap items-center gap-3">
           <ProjectIcon slug="apex-solver" title={apexSolver.title} />
           <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl">{apexSolver.title}</h1>
+          <span className="rounded-full border border-border bg-muted/40 px-2.5 py-0.5 font-mono text-xs text-muted-foreground">
+            v{apexSolver.version}
+          </span>
         </div>
         <p className="max-w-2xl text-balance text-base text-muted-foreground sm:text-lg">
           {apexSolver.tagline}
