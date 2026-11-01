@@ -5,7 +5,7 @@ export const apexSolver = {
   title: "apex solver",
   version: "1.5.0",
   tagline:
-    "A high-performance Rust library for nonlinear least squares optimization in SLAM & Computer Vision.",
+    "A high-performance Rust library for nonlinear least-squares optimization in SLAM & Computer Vision.",
   overview: [
     "Apex Solver is a high-performance nonlinear least-squares optimization library for computer vision and robotics — bundle adjustment, SLAM, pose-graph optimization and sensor fusion. It provides manifold-aware optimization over Lie groups, three optimizers (Levenberg-Marquardt, Gauss-Newton, Dog Leg) behind a unified interface, sparse and matrix-free Schur-complement linear solvers, and industry-standard file format support (G2O, TORO, BAL) for seamless integration with existing workflows.",
     "The problem lives in a slot-map arena: variables and factors are addressed by stable, generational VarKey/FactorKey handles — O(1) access with no hashing or per-key allocation on the hot path. Manifold parameters stay in contiguous storage handed to faer as zero-copy views, a persistent symbolic factorization is built once and reused every iteration, and assembly runs lock-free parallel over disjoint buffers (rayon). The per-iteration hot path is allocation- and copy-free.",
