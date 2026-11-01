@@ -27,12 +27,10 @@ export default function VideoGallery({
 
   return (
     <>
-      <div className="flex flex-col gap-6">
-        {videos.map((video, index) => (
-          <div
-            key={video.src}
-            className="flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-8"
-          >
+      <ul className="flex list-disc flex-col gap-6 pl-4 marker:text-muted-foreground">
+        {videos.map((video) => (
+          <li key={video.src}>
+            <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-8">
             <div className="flex flex-1 flex-col gap-1 min-w-0">
               <h3 className="text-sm font-semibold">{video.title}</h3>
               <p className="text-xs text-muted-foreground leading-relaxed">
@@ -63,9 +61,10 @@ export default function VideoGallery({
                 <Play className="size-3" /> enlarge
               </span>
             </button>
-          </div>
+            </div>
+          </li>
         ))}
-      </div>
+      </ul>
 
       {active && (
         <div

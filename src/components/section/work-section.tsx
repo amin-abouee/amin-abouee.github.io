@@ -66,23 +66,21 @@ export default function WorkSection() {
           <AccordionContent className="p-0 ml-13 flex flex-col gap-3 text-xs sm:text-sm text-muted-foreground">
             <p>{work.description}</p>
             {work.highlights.length > 0 && (
-              <div className="flex flex-col gap-3">
-                {work.highlights.map((highlight, index) => (
-                  <div key={highlight.title} className="flex gap-3">
-                    <div className="flex min-w-0 flex-1 flex-col gap-0.5">
-                      <h3 className="text-sm font-semibold">{highlight.title}</h3>
-                      <p className="text-xs leading-relaxed text-muted-foreground">
-                        {highlight.description}
-                      </p>
-                      {highlight.src && (
-                        <div className="mt-2">
-                          <InlineVideo src={highlight.src} title={highlight.title} />
-                        </div>
-                      )}
-                    </div>
-                  </div>
+              <ul className="flex list-disc flex-col gap-3 pl-4 marker:text-muted-foreground">
+                {work.highlights.map((highlight) => (
+                  <li key={highlight.title}>
+                    <h3 className="text-sm font-semibold">{highlight.title}</h3>
+                    <p className="text-xs leading-relaxed text-muted-foreground">
+                      {highlight.description}
+                    </p>
+                    {highlight.src && (
+                      <div className="mt-2">
+                        <InlineVideo src={highlight.src} title={highlight.title} />
+                      </div>
+                    )}
+                  </li>
                 ))}
-              </div>
+              </ul>
             )}
             {work.videos.length > 0 && <VideoGallery videos={work.videos} />}
           </AccordionContent>
