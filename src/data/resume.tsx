@@ -85,7 +85,7 @@ export const DATA = {
           title: "Semi-supervised visual odometry",
           description:
             "Built a semi-supervised deep visual odometry pipeline in Python and CUDA, combining learning-based feature extraction with differentiable bundle adjustment on embedded hardware. The CVPRW 2024 paper trains it on estimated optical flow — only pose ground truth and raw images, no dense depth — and reports state-of-the-art KITTI results.",
-          src: "/videos/02_slam_pointcloud_map.mp4",
+          src: "/videos/spleenlab-dpvo-pointcloud-map.mp4",
         },
       ],
       description:
@@ -117,19 +117,19 @@ export const DATA = {
           title: "Multi-camera feature & featureless tracking",
           description:
             "A multi-camera AR setup: the C++ tracker fuses frames from the calibrated cameras to estimate 6-DoF pose, overlays the CAD model on the live view (video in video) and streams pose updates on the console. Tracking runs on feature correspondences when texture is available and switches to featureless alignment when it is not.",
-          src: "/videos/modular-tracking.mp4",
+          src: "/videos/art-modular-tracking.mp4",
         },
         {
           title: "Modular C++ tracker",
           description:
             "The tracking library is deliberately modular — feature-based, model-based and edge-based tracker components are interchangeable behind a common 6-DoF estimation loop. The clip stitches together the full run and the interim status (German: \"Zwischenstand\"), holding pose on a sheet-metal car part.",
-          src: "/videos/inside-out-weak-texture.mp4",
+          src: "/videos/art-inside-out-weak-texture.mp4",
         },
         {
           title: "Textureless, edge-based tracking",
           description:
             "Objects without surface texture — printed plans, uncoated parts — are tracked purely on their edges and contours, inside out: the camera moves freely while CAD modules of an industrial plant stay anchored to the plan. No markers, no fiducials.",
-          src: "/videos/multi-camera-video-in-video.mp4",
+          src: "/videos/art-multi-camera-video-in-video.mp4",
         },
       ],
       highlights: [],
