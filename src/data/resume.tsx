@@ -95,7 +95,7 @@ export const DATA = {
         },
       ],
       description:
-        "Multi-sensor localization and mapping for an unmanned ground vehicle. Four focus areas below.",
+        "Multi-sensor localization and mapping for unmanned ground and aerial vehicles. Four focus areas below.",
     },
     {
       company: "Denso ADAS",
