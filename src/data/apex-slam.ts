@@ -17,7 +17,7 @@ export const apexSlamPage: CratePage = {
   overview: [
     "APEX SLAM is my personal SLAM stack, still in active development. It brings three odometry modes into one codebase and one estimation core: visual-inertial odometry for monocular and stereo camera and IMU setups, LiDAR-inertial odometry, and LiDAR-inertial-visual odometry that fuses cameras with LiDAR.",
     "The camera modes run in real time on laptop-class CPUs and target platforms that carry only cameras and an IMU, while the LiDAR modes add range for handheld and vehicle platforms. All modes share the same initialization, sliding-window estimation and evaluation tooling, so their results are scored identically and stay comparable across sensors and datasets.",
-    "Development is ongoing: the numbers below are internal evaluations on public benchmarks (EuRoC, TUM VI and Hilti 2023) and will keep changing as the system matures. The source is private for now, so this page only reports high-level behaviour and benchmark results.",
+    "Development is ongoing: the numbers below are internal evaluations on public benchmarks (EuRoC, TUM VI and Hilti 2023) and will keep changing as the system matures. The source is private for now, so this page only reports high-level behavior and benchmark results.",
   ],
   features: [
     {
@@ -139,7 +139,7 @@ export const apexSlamPage: CratePage = {
         ["Hilti score (of 1200)", "212.9", "246.3", "135.9", "125.2"],
       ],
       note:
-        "Scored by yaw and translation alignment (gravity kept), as the challenge does; site2_handheld_5 is scored on its 3 consistent control points because the published ground truth repeats a leg. Competitor numbers are our own runs on the same stripped bags, executed in an arm64 VM on the same machine, while APEX runs natively. The best RMSE of each sequence is highlighted; the score row rewards the highest total.",
+        "Scored by yaw and translation alignment (gravity kept), as the challenge does; site2_handheld_5 is scored on its 3 consistent control points because the published ground truth repeats a leg. Competitor numbers are our own runs on the same stripped bags, executed in an arm64 VM on the same machine, while APEX runs natively. The best RMSE of each sequence is highlighted; the score row is the exception — the highest total wins.",
     },
     {
       heading: "Runtime on Hilti 2023",
