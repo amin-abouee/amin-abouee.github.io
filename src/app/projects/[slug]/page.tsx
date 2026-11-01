@@ -344,20 +344,44 @@ function CrateDetail({ page, slug }: { page: CratePage; slug: string }) {
                 <tr className="bg-muted/40">{section.columns.map((c) => th(c))}</tr>
               </thead>
               <tbody>
-                {section.rows.map((row) => (
-                  <tr key={row.join("|")} className="border-t border-border/60">
-                    {row.map((cell, j) => (
-                      <td
-                        key={j}
-                        className={`px-2 py-1.5 align-top ${
-                          j === 0 ? "whitespace-nowrap text-xs font-medium" : "text-xs text-muted-foreground"
-                        }`}
-                      >
-                        {cell}
-                      </td>
-                    ))}
-                  </tr>
-                ))}
+                {section.rows.map((row, rowIndex) => {
+                  const bestCols =
+                    section.bestRows?.[rowIndex] ??
+                    (section.best === "min"
+                      ? (() => {
+                          const nums = row
+                            .map((cell, j) => ({ j, v: parseFloat(cell) }))
+                            .filter((x) => Number.isFinite(x.v));
+                          if (!nums.length) return [];
+                          const min = Math.min(...nums.map((x) => x.v));
+                          return nums.filter((x) => x.v === min).map((x) => x.j);
+                        })()
+                      : []);
+                  return (
+                    <tr key={row.join("|")} className="border-t border-border/60">
+                      {row.map((cell, j) => {
+                        const isApex = section.apexColumns?.includes(j);
+                        const isBest = bestCols.includes(j);
+                        const accent =
+                          j === 0
+                            ? "whitespace-nowrap font-medium text-foreground"
+                            : isBest
+                              ? "font-semibold text-emerald-600 dark:text-emerald-400"
+                              : isApex
+                                ? "font-medium text-amber-600 dark:text-amber-400"
+                                : "text-muted-foreground";
+                        return (
+                          <td
+                            key={j}
+                            className={`px-2 py-1.5 align-top text-xs ${isApex ? "bg-amber-500/5" : ""} ${accent}`}
+                          >
+                            {cell}
+                          </td>
+                        );
+                      })}
+                    </tr>
+                  );
+                })}
               </tbody>
             </table>
           </div>

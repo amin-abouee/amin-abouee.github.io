@@ -13,6 +13,12 @@ export type CrateSection = {
   columns: string[];
   rows: string[][];
   note?: string;
+  /** Column indexes that belong to APEX — rendered amber, as on the solver page. */
+  apexColumns?: number[];
+  /** Mark the numerically best cell of every row (lowest value). */
+  best?: "min";
+  /** Explicit best-cell overrides by row index, e.g. when higher is better. */
+  bestRows?: Record<number, number[]>;
 };
 
 export type CratePage = {

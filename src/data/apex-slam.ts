@@ -1,6 +1,9 @@
 // apex-slam detail page content. Source: private apex-vio workspace —
 // doc/performance.md (EuRoC / TUM VI VIO) and doc/hilti.md + doc/evaluation.md
-// (Hilti 2023 LIO / LIVO). High-level only: the codebase is private.
+// (Hilti 2023 LIO / LIVO). Baseline per-sequence numbers: DM-VIO paper
+// (RA-L 2022, arXiv:2201.04114) Table I (EuRoC) and Table II (TUM VI rooms)
+// for DM-VIO and VINS-Mono; Basalt and OKVIS2-X as reported in the apex-vio
+// docs. High-level only: the codebase is private.
 
 import type { CratePage } from "@/data/apex-crates";
 import { videoSrc } from "@/data/media";
@@ -40,51 +43,85 @@ export const apexSlamPage: CratePage = {
   ],
   sections: [
     {
-      heading: "Visual-inertial odometry, full per-sequence results",
+      heading: "Monocular VIO, per sequence",
       intro:
-        "ATE RMSE per sequence (SE(3)-aligned, scale not fitted), monocular and stereo, on all 11 EuRoC MAV sequences and all 6 TUM VI room sequences, against the published results of DM-VIO, Basalt and OKVIS2-X.",
-      video: {
-        title: "Stereo visual-inertial odometry",
-        description:
-          "A full stereo run in rerun: trajectory and landmark map, both camera streams, and live timing, ATE and bias panels.",
-        src: videoSrc("apex-slam-vio-stereo"),
-      },
-      columns: ["Sequence", "Mono", "Stereo", "DM-VIO", "Basalt", "OKVIS2-X", "ms/frame"],
+        "ATE RMSE per sequence (SE(3)-aligned, scale not fitted) on all 11 EuRoC MAV sequences and the 6 TUM VI room sequences, against DM-VIO and VINS-Mono.",
+      columns: ["Sequence", "APEX mono", "DM-VIO", "VINS-Mono"],
+      apexColumns: [1],
+      best: "min",
       rows: [
-        ["MH_01_easy", "0.149 m", "0.051 m", "0.065 m", "0.070 m", "0.050 m", "13.9 / 18.5"],
-        ["MH_02_easy", "0.112 m", "0.057 m", "0.044 m", "0.060 m", "0.048 m", "14.2 / 19.2"],
-        ["MH_03_medium", "0.191 m", "0.060 m", "0.097 m", "0.070 m", "0.085 m", "13.9 / 19.7"],
-        ["MH_04_difficult", "0.202 m", "0.095 m", "0.102 m", "0.130 m", "0.144 m", "10.9 / 15.2"],
-        ["MH_05_difficult", "0.296 m", "0.132 m", "0.096 m", "0.110 m", "0.125 m", "11.2 / 15.0"],
-        ["V1_01_easy", "0.078 m", "0.034 m", "0.048 m", "0.040 m", "0.045 m", "12.9 / 17.7"],
-        ["V1_02_medium", "0.095 m", "0.043 m", "0.045 m", "0.050 m", "0.046 m", "12.9 / 19.4"],
-        ["V1_03_difficult", "0.081 m", "0.043 m", "0.069 m", "0.100 m", "0.046 m", "10.3 / 16.3"],
-        ["V2_01_easy", "0.081 m", "0.056 m", "0.029 m", "0.040 m", "0.033 m", "10.1 / 13.0"],
-        ["V2_02_medium", "0.102 m", "0.093 m", "0.050 m", "0.050 m", "0.030 m", "10.7 / 15.8"],
-        ["V2_03_difficult", "0.174 m", "0.085 m", "0.114 m", "not run", "0.071 m", "9.8 / 13.9"],
-        ["EuRoC mean (11)", "0.142 m", "0.068 m", "0.069 m", "0.072 m", "0.066 m", "11.9 / 16.7"],
-        ["room1", "0.040 m", "0.031 m", "0.030 m", "0.090 m", "not run", "16.0 / 28.2"],
-        ["room2", "0.070 m", "0.042 m", "0.130 m", "0.070 m", "not run", "16.0 / 27.7"],
-        ["room3", "0.069 m", "0.036 m", "0.090 m", "0.130 m", "not run", "21.6 / 39.6"],
-        ["room4", "0.030 m", "0.019 m", "0.040 m", "0.050 m", "not run", "14.5 / 27.5"],
-        ["room5", "0.052 m", "0.036 m", "0.060 m", "0.130 m", "not run", "14.2 / 26.2"],
-        ["room6", "0.039 m", "0.017 m", "0.020 m", "0.020 m", "not run", "15.2 / 24.7"],
-        ["TUM VI room mean (6)", "0.050 m", "0.030 m", "0.062 m", "0.082 m", "not run", "16.3 / 29.0"],
+        ["MH_01_easy", "0.149 m", "0.065 m", "0.15 m"],
+        ["MH_02_easy", "0.112 m", "0.044 m", "0.15 m"],
+        ["MH_03_medium", "0.191 m", "0.097 m", "0.22 m"],
+        ["MH_04_difficult", "0.202 m", "0.102 m", "0.32 m"],
+        ["MH_05_difficult", "0.296 m", "0.096 m", "0.30 m"],
+        ["V1_01_easy", "0.078 m", "0.048 m", "0.079 m"],
+        ["V1_02_medium", "0.095 m", "0.045 m", "0.11 m"],
+        ["V1_03_difficult", "0.081 m", "0.069 m", "0.18 m"],
+        ["V2_01_easy", "0.081 m", "0.029 m", "0.080 m"],
+        ["V2_02_medium", "0.102 m", "0.050 m", "0.16 m"],
+        ["V2_03_difficult", "0.174 m", "0.114 m", "0.27 m"],
+        ["EuRoC mean (11)", "0.142 m", "0.069 m", "0.184 m"],
+        ["room1", "0.040 m", "0.030 m", "0.07 m"],
+        ["room2", "0.070 m", "0.130 m", "0.07 m"],
+        ["room3", "0.069 m", "0.090 m", "0.11 m"],
+        ["room4", "0.030 m", "0.040 m", "0.04 m"],
+        ["room5", "0.052 m", "0.060 m", "0.20 m"],
+        ["room6", "0.039 m", "0.020 m", "0.08 m"],
+        ["TUM VI room mean (6)", "0.050 m", "0.062 m", "0.095 m"],
       ],
       note:
-        "Per sequence, the median over three RANSAC seeds. Reference numbers are as published by those projects (DM-VIO reports medians over repeated runs in realtime mode) and were not re-run here, so the comparison is indicative rather than exact. Runtime is the mean per-frame time of the estimator loop on an Apple M4, monocular first and stereo second.",
+        "APEX: median over three RANSAC seeds. DM-VIO and VINS-Mono: the per-sequence values published in the DM-VIO paper (RA-L 2022, Table I for EuRoC and Table II for the TUM VI rooms), where VINS-Mono is reported to two decimals; protocols differ, so the comparison is indicative rather than exact. The best value of each row is highlighted.",
+    },
+    {
+      heading: "Stereo VIO, per sequence",
+      intro:
+        "The same sequences with a second camera, against Basalt and OKVIS2-X (both stereo-inertial, as published).",
+      columns: ["Sequence", "APEX stereo", "Basalt", "OKVIS2-X"],
+      apexColumns: [1],
+      best: "min",
+      video: {
+        title: "Stereo VIO demo",
+        description: "Feature tracking, keyframe window and trajectory of the stereo-inertial pipeline.",
+        src: videoSrc("apex-slam-vio-stereo"),
+      },
+      rows: [
+        ["MH_01_easy", "0.051 m", "0.070 m", "0.050 m"],
+        ["MH_02_easy", "0.057 m", "0.060 m", "0.048 m"],
+        ["MH_03_medium", "0.060 m", "0.070 m", "0.085 m"],
+        ["MH_04_difficult", "0.095 m", "0.130 m", "0.144 m"],
+        ["MH_05_difficult", "0.132 m", "0.110 m", "0.125 m"],
+        ["V1_01_easy", "0.034 m", "0.040 m", "0.045 m"],
+        ["V1_02_medium", "0.043 m", "0.050 m", "0.046 m"],
+        ["V1_03_difficult", "0.043 m", "0.100 m", "0.046 m"],
+        ["V2_01_easy", "0.056 m", "0.040 m", "0.033 m"],
+        ["V2_02_medium", "0.093 m", "0.050 m", "0.030 m"],
+        ["V2_03_difficult", "0.085 m", "not run", "0.071 m"],
+        ["EuRoC mean (11)", "0.068 m", "0.072 m", "0.066 m"],
+        ["room1", "0.031 m", "0.090 m", "not run"],
+        ["room2", "0.042 m", "0.070 m", "not run"],
+        ["room3", "0.036 m", "0.130 m", "not run"],
+        ["room4", "0.019 m", "0.050 m", "not run"],
+        ["room5", "0.036 m", "0.130 m", "not run"],
+        ["room6", "0.017 m", "0.020 m", "not run"],
+        ["TUM VI room mean (6)", "0.030 m", "0.082 m", "not run"],
+      ],
+      note:
+        "APEX: median over three seeds. Basalt values as reported in the DM-VIO paper and OKVIS2-X as reported in its T-RO 2025 table; neither was re-run here. The best value of each row is highlighted.",
     },
     {
       heading: "Hilti 2023 handheld: LiDAR and LiDAR-visual",
       intro:
         "Control-point RMSE per sequence over the 12 handheld sequences with published control points, against FAST-LIVO2 and Voxel-SLAM run on the same bags (Hilti 2023 scoring, 1200 points maximum).",
+      columns: ["Sequence", "APEX LIO", "APEX LIVO", "FAST-LIVO2", "Voxel-SLAM"],
+      apexColumns: [1, 2],
+      best: "min",
+      bestRows: { 13: [2] },
       video: {
-        title: "LiDAR-inertial-visual odometry",
-        description:
-          "LIVO on a Hilti 2023 handheld sequence: the LiDAR map coloured by camera depth, the fisheye stream, and live timing and control-point panels.",
+        title: "LIVO on Hilti 2023",
+        description: "LiDAR-inertial-visual odometry running on a handheld Hilti sequence.",
         src: videoSrc("apex-slam-livo-hilti"),
       },
-      columns: ["Sequence", "APEX LIO", "APEX LIVO", "FAST-LIVO2", "Voxel-SLAM"],
       rows: [
         ["site1_handheld_1", "8.5 cm", "5.0 cm", "32.1 cm", "27.5 cm"],
         ["site1_handheld_2", "5.2 cm", "5.1 cm", "20.9 cm", "21.6 cm"],
@@ -102,7 +139,7 @@ export const apexSlamPage: CratePage = {
         ["Hilti score (of 1200)", "212.9", "246.3", "135.9", "125.2"],
       ],
       note:
-        "Scored by yaw and translation alignment (gravity kept), as the challenge does; site2_handheld_5 is scored on its 3 consistent control points because the published ground truth repeats a leg. Competitor numbers are our own runs on the same stripped bags, executed in an arm64 VM on the same machine, while APEX runs natively.",
+        "Scored by yaw and translation alignment (gravity kept), as the challenge does; site2_handheld_5 is scored on its 3 consistent control points because the published ground truth repeats a leg. Competitor numbers are our own runs on the same stripped bags, executed in an arm64 VM on the same machine, while APEX runs natively. The best RMSE of each sequence is highlighted; the score row rewards the highest total.",
     },
     {
       heading: "Runtime on Hilti 2023",
