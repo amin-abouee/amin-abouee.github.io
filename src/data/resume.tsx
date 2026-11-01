@@ -21,15 +21,15 @@ export const DATA = {
     {
       category: "Robotics, SLAM & perception",
       items: [
-        "SLAM & localization",
-        "State estimation",
-        "Sensor fusion",
-        "Sensor calibration",
+        "SLAM & Localization",
+        "State Estimation",
+        "Sensor Fusion",
+        "Sensor Calibration",
       ],
     },
     {
       category: "Deep learning & AI",
-      items: ["PyTorch", "CUDA", "Self-supervised depth & flow", "Differentiable optimization"],
+      items: ["PyTorch", "CUDA", "Self-Supervised Depth & Flow", "Differentiable Optimization"],
     },
     {
       category: "Libraries & tools",
