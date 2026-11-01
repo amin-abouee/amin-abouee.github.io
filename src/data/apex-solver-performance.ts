@@ -11,10 +11,10 @@ export const apexSolver = {
     "The problem lives in a slot-map arena: variables and factors are addressed by stable, generational VarKey/FactorKey handles — O(1) access with no hashing or per-key allocation on the hot path. Manifold parameters stay in contiguous storage handed to faer as zero-copy views, a persistent symbolic factorization is built once and reused every iteration, and assembly runs lock-free parallel over disjoint buffers (rayon). The per-iteration hot path is allocation- and copy-free.",
   ],
   links: [
-    { label: "Source", href: "https://github.com/aabouee/apex-solver" },
+    { label: "Source", href: "https://github.com/amin-abouee/apex-solver" },
     {
       label: "Benchmark cookbook",
-      href: "https://aabouee.github.io/apex-solver/",
+      href: "https://amin-abouee.github.io/apex-solver/",
     },
     { label: "crates.io", href: "https://crates.io/crates/apex-solver" },
     { label: "docs.rs", href: "https://docs.rs/apex-solver" },
