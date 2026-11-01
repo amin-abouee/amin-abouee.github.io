@@ -35,8 +35,6 @@ export default function WorkSection() {
     <Accordion
       type="single"
       collapsible
-      // the most recent work item with demo videos starts expanded
-      defaultValue={DATA.work.find((w) => w.videos.length > 0)?.company}
       className="w-full grid gap-6"
     >
       {DATA.work.map((work) => (
@@ -71,9 +69,6 @@ export default function WorkSection() {
               <div className="flex flex-col gap-3">
                 {work.highlights.map((highlight, index) => (
                   <div key={highlight.title} className="flex gap-3">
-                    <span className="pt-0.5 font-mono text-xs font-medium text-muted-foreground">
-                      {String(index + 1).padStart(2, "0")}
-                    </span>
                     <div className="flex min-w-0 flex-1 flex-col gap-0.5">
                       <h3 className="text-sm font-semibold">{highlight.title}</h3>
                       <p className="text-xs leading-relaxed text-muted-foreground">

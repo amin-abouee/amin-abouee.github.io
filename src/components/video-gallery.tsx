@@ -34,9 +34,6 @@ export default function VideoGallery({
             className="flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-8"
           >
             <div className="flex flex-1 flex-col gap-1 min-w-0">
-              <span className="font-mono text-xs font-medium text-muted-foreground">
-                {String(index + 1).padStart(2, "0")}
-              </span>
               <h3 className="text-sm font-semibold">{video.title}</h3>
               <p className="text-xs text-muted-foreground leading-relaxed">
                 {video.description}
