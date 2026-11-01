@@ -31,7 +31,7 @@ export type CratePage = {
   sections: CrateSection[];
 };
 
-const repo = "https://github.com/amin-abouee/apex-solver/tree/main/crates";
+const repo = "https://github.com/aabouee/apex-solver/tree/main/crates";
 
 export const apexCrates: Record<string, CratePage> = {
   "apex-camera-models": {

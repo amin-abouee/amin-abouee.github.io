@@ -579,7 +579,7 @@ export default async function ProjectDetail({
         <p className="text-xs text-muted-foreground">
           Full methodology, per-run data and interactive plots:{" "}
           <a
-            href="https://github.com/amin-abouee/apex-solver/tree/main/doc/performance.md"
+            href="https://github.com/aabouee/apex-solver/tree/main/doc/performance.md"
             target="_blank"
             rel="noopener noreferrer"
             className="underline underline-offset-2 hover:text-foreground"
