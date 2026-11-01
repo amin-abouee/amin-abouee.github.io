@@ -419,8 +419,10 @@ export default async function ProjectDetail({
   if (crate) return <CrateDetail page={crate} slug={slug} />;
   if (slug !== "apex-solver") notFound();
 
-  const poseGraphCaption =
-    "Benchmarks: pose graphs and bundle adjustment compared against Ceres 2.2.0, GTSAM 4.3.0, g2o, factrs and tiny-solver; Levenberg-Marquardt throughout. apex uses sparse Cholesky for odometry and the matrix-free ImplicitSparseSchur for BA.";
+  const chartCaption =
+    "Benchmarks compared against Ceres 2.2.0, GTSAM 4.3.0, g2o, factrs and tiny-solver; Levenberg-Marquardt throughout.";
+  const poseGraphCaption = `${chartCaption} apex solver uses sparse Cholesky for pose-graph optimization.`;
+  const baCaption = `${chartCaption} apex solver uses the matrix-free ImplicitSparseSchur for bundle adjustment.`;
 
   return (
     <article className="mx-auto flex w-full max-w-5xl flex-col gap-8 px-4 py-16 sm:py-20">
@@ -544,7 +546,7 @@ export default async function ProjectDetail({
               label: d.dataset,
               bars: d.rows.map((r) => ({ label: r.solver, value: r.rmseVal, disp: r.rmse })),
             }))}
-            caption={poseGraphCaption}
+            caption={baCaption}
           />
         </div>
 
