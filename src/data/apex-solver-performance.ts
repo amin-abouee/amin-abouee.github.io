@@ -72,7 +72,7 @@ export const apexSolver = {
       "Mean ± std over independent runs; timing covers the optimize() call only (setup and metric computation excluded). Cost and RMSE are computed by the benchmark harness from the input files for every solver, so values are comparable across implementations. Bundle adjustment uses a 10-minute timeout.",
   },
   observations: [
-    "Fastest on 5 of 8 pose-graph datasets — M3500 (1.27× GTSAM), city10000 (1.40× GTSAM, 3.5× Ceres), ring, cubicle and, among solvers that reach a good solution, mit.",
+    "Fastest on 5 of 8 pose-graph datasets — M3500 (1.27× GTSAM), city10000 (1.40× GTSAM, 3.5× Ceres), ring, cubicle, and mit (the last among solvers that reach a good solution).",
     "GTSAM 4.3 reaches the lowest normalized cost on all 8 datasets; apex lands within 1–4 % of it on M3500, parking-garage, city10000 and torus3D.",
     "Bundle adjustment: apex is the only solver besides g2o to finish 5 M-observation Venice inside the 10-minute limit — 0.745 px RMSE in 19 s — while Ceres and GTSAM time out.",
     "ImplicitSparseSchur (matrix-free PCG) is 3.3–3.5× faster in total than the explicit reduced solve on Ladybug and Venice at equal accuracy.",
