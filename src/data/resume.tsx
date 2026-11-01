@@ -210,7 +210,7 @@ export const DATA = {
       dates: "2025 - Present",
       active: true,
       description:
-        "Nine camera projection models — pinhole, Brown–Conrady/RadTan, double-sphere, EUCM, UCM, FOV, f-theta, Kannala-Brandt and BAL — with analytic projection, unprojection and Jacobians; distortion handled at projection time, no rectification by design. Includes a converter/undistort CLI for fisheye and wide-angle calibrations. [Read more on GitHub →](https://github.com/amin-abouee/apex-solver/tree/main/crates/apex-camera-models)",
+        "Twelve camera projection models — pinhole and its two BAL variants, RadTan/Brown–Conrady, Kannala-Brandt, Fisheye62/624, double-sphere, EUCM, UCM, FOV and f-theta — with analytic projection, unprojection and Jacobians; distortion handled at projection time, no rectification by design. Includes exact and fitting conversions between models (convert_camera). [Read more on GitHub →](https://github.com/amin-abouee/apex-solver/tree/main/crates/apex-camera-models)",
       technologies: ["Rust", "Computer Vision", "Camera Models"],
       links: [
         {
