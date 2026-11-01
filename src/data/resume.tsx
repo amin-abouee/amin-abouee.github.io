@@ -16,46 +16,25 @@ export const DATA = {
   skills: [
     {
       category: "Programming languages",
-      items: ["C++ (11–20)", "Rust", "Python"],
-    },
-    {
-      category: "Frameworks & platforms",
-      items: [
-        "ROS 2",
-        "DDS",
-        "Docker",
-        "Linux (Ubuntu / Arch)",
-        "NVIDIA Jetson Orin",
-        "Embedded systems",
-      ],
+      items: ["C++", "Rust", "Python"],
     },
     {
       category: "Robotics, SLAM & perception",
       items: [
-        "SLAM",
-        "Localization & mapping",
-        "Place recognition",
+        "SLAM & localization",
         "State estimation",
-        "Sensor fusion (camera · IMU · LiDAR · radar · GNSS)",
-        "Filtering & factor graph optimization",
-        "Sensor calibration & synchronization",
-        "3D reconstruction",
+        "Sensor fusion",
+        "Sensor calibration",
+        "ROS 2",
       ],
     },
     {
       category: "Deep learning & AI",
-      items: [
-        "PyTorch",
-        "CUDA",
-        "Self-supervised depth & flow",
-        "Differentiable optimization",
-        "3D Gaussian splatting",
-        "Feedforward geometric foundation models",
-      ],
+      items: ["PyTorch", "CUDA", "Self-supervised depth & flow", "Differentiable optimization"],
     },
     {
       category: "Libraries & tools",
-      items: ["Eigen", "OpenCV", "PCL", "Ceres Solver", "GTSAM", "Git & CI/CD"],
+      items: ["OpenCV", "Eigen", "PCL", "Ceres Solver", "GTSAM", "Git & CI/CD"],
     },
   ],
   navbar: [
