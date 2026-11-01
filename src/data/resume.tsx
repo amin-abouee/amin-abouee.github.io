@@ -25,7 +25,6 @@ export const DATA = {
         "State estimation",
         "Sensor fusion",
         "Sensor calibration",
-        "ROS 2",
       ],
     },
     {
@@ -34,7 +33,7 @@ export const DATA = {
     },
     {
       category: "Libraries & tools",
-      items: ["OpenCV", "Eigen", "PCL", "Ceres Solver", "GTSAM", "Git & CI/CD"],
+      items: ["ROS", "OpenCV", "Eigen", "PCL", "Ceres Solver", "GTSAM", "Git & CI/CD"],
     },
   ],
   navbar: [
