@@ -230,7 +230,7 @@ export const apexCrates: Record<string, CratePage> = {
       { label: "docs.rs", href: "https://docs.rs/apex-io" },
     ],
     overview: [
-      "File I/O for the data robotics actually produces: pose graphs (G2O, TORO, BAL), ROS 1 .bag files, ROS 2 bags (SQLite3 and MCAP storage), Meta VRS / Project Aria recordings, and TUM / ASL-EuRoC trajectories — with topic and time-range filtering, raw and deserialized APIs, and a schema-driven ROS 1 ⇄ ROS 2 transcoder that needs no typed message structs.",
+      "File I/O for the data that robotics actually produces: pose graphs (G2O, TORO, BAL), ROS 1 .bag files, ROS 2 bags (SQLite3 and MCAP storage), Meta VRS / Project Aria recordings, and TUM / ASL-EuRoC trajectories — with topic and time-range filtering, raw and deserialized APIs, and a schema-driven ROS 1 ⇄ ROS 2 transcoder that needs no typed message structs.",
       "The crate has been unsafe-free since 0.2.0: the four memmap2 sites became buffered whole-file reads (one allocation, no page-fault overhead, no soundness footgun), and large files are parsed in parallel with rayon. Since 0.5.0 a format-agnostic BagReader / BagIterator gives one pull API over every container, so a VIO front end can keep state between samples, and a bag_merge tool joins recordings.",
     ],
     features: [
