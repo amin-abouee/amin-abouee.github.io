@@ -1,8 +1,6 @@
 // Detail-page content for the three workspace crates, transcribed from their
 // READMEs and source trees (checked against Cargo.toml + src/ exports):
-//   apex-camera-models 0.4.0 · apex-manifolds 0.4.0 · apex-io 0.5.0.
-// NOTE: apex-io's README still says 0.4.0; the crate is at 0.5.0 (its
-// CHANGELOG "Unreleased" section documents the VRS / ROS 1–2 overhaul).
+//   apex-camera-models 0.5.0 · apex-manifolds 0.5.0 · apex-io 0.5.0.
 
 import type { WorkVideo } from "@/components/video-gallery";
 
@@ -38,7 +36,7 @@ export const apexCrates: Record<string, CratePage> = {
     title: "apex camera models",
     tagline:
       "Comprehensive camera projection models for bundle adjustment, SLAM and structure-from-motion — every model with analytic Jacobians.",
-    version: "0.4.0",
+    version: "0.5.0",
     links: [
       { label: "Source", href: `${repo}/apex-camera-models` },
       { label: "Cookbook", href: `${repo}/apex-camera-models/doc/cookbook` },
@@ -68,12 +66,12 @@ export const apexCrates: Record<string, CratePage> = {
       {
         title: "Structured, typed errors",
         detail:
-          "One CameraModelError enum whose variants carry the actual values — FocalLengthNotPositive { fx, fy }, PointBehindCamera { z, min_z }, DenominatorTooSmall { denom, threshold }.",
+          "CameraModelError is a hierarchy over ParamError, ProjectionError, UnprojectionError, EstimationError and ConversionError — every variant carries the actual values, no strings.",
       },
       {
-        title: "Projection-domain geometry (0.4.0)",
+        title: "Project Aria fisheye (0.5.0)",
         detail:
-          "projection_deficit returns the signed depth deficit of a camera-frame point outside a model's domain, with its gradient. Domain geometry is explicit per model (z-forward default, BAL z-backward, double-sphere cone); Kannala-Brandt unprojection now rejects out-of-domain and non-converged rays.",
+          "Fisheye62 and Fisheye624 (LaMAria's RAD_TAN_THIN_PRISM_FISHEYE) with analytic Jacobians and Newton unprojection; Aria's single-focal vectors convert with from_aria_params / to_aria_params. projection_deficit gives the signed depth deficit outside each model's domain.",
       },
       {
         title: "Comprehensive validation",
@@ -123,7 +121,7 @@ export const apexCrates: Record<string, CratePage> = {
     title: "apex manifolds",
     tagline:
       "Lie group manifolds — SE(2), SE(3), SO(2), SO(3), SE₂(3), SGal(3), Sim(3) and Rⁿ — with analytic Jacobians for nonlinear optimization.",
-    version: "0.4.0",
+    version: "0.5.0",
     links: [
       { label: "Source", href: `${repo}/apex-manifolds` },
       { label: "Cookbook", href: `${repo}/apex-manifolds/doc/cookbook` },
@@ -156,14 +154,14 @@ export const apexCrates: Record<string, CratePage> = {
           "A small-angle threshold (1e-10) guards every Taylor expansion, avoiding catastrophic cancellation in sin(θ)/θ and (1−cos θ)/θ² near zero — consistent with Sophus and GTSAM.",
       },
       {
-        title: "0.4.0 correctness round",
+        title: "0.5.0 correctness round",
         detail:
-          "SE(3)/SE₂(3) right Jacobians corrected to the right convention, SGal(3) exponential (time–velocity coupling) and adjoint fixed, Sim(3) action/adjoint/Jacobian differentials fixed, SO3::log small-angle sign fixed, Rn between-Jacobian dimension fixed; SO3::slerp and a checked quaternion constructor added.",
+          "SGal(3) compose/adjoint/exp fixed (time–velocity coupling) along with the act Jacobian's time column; checked constructors and fallible Rn operations replace silent NaN and panics; hierarchical ManifoldError (ElementError, TangentError, RnError, ManifoldTypeError).",
       },
       {
         title: "Compile-time group capabilities",
         detail:
-          "Factors state what the mathematics requires (G: ActsOnPoints3) instead of checking group names at runtime — a group that cannot do the job fails to compile.",
+          "Factors state what the mathematics requires (ActsOnPoints3, RigidPose, HasVelocity, ConstDoF) instead of checking group names at runtime — a group that cannot do the job fails to compile.",
       },
     ],
     sections: [

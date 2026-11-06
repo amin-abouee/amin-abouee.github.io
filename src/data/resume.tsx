@@ -168,7 +168,7 @@ export const DATA = {
       dates: "2025 - Present",
       active: true,
       description:
-        "High-performance nonlinear least-squares solver in pure Rust for factor-graph optimization — bundle adjustment, pose-graph optimization and sensor fusion. Manifold-aware Lie groups with analytic Jacobians, ~40 factors, explicit & implicit (matrix-free) Schur solvers. Fastest on 5 of 8 pose-graph benchmarks vs Ceres, GTSAM, g2o, factrs and tiny-solver; only solver besides g2o to finish the 5 M-observation Venice BA within the time limit. **Details & benchmarks →**",
+        "High-performance nonlinear least-squares solver in pure Rust for factor-graph optimization — bundle adjustment, pose-graph optimization, sliding-window/fixed-lag smoothing and sensor fusion. Manifold-aware Lie groups with analytic Jacobians, ~60 factors, explicit & implicit (matrix-free) Schur solvers. Fastest on 5 of 8 pose-graph benchmarks vs Ceres, GTSAM, g2o, factrs and tiny-solver; only solver besides g2o to finish the 5 M-observation Venice BA within the time limit. **Details & benchmarks →**",
       technologies: [
         "Rust",
         "Nonlinear Optimization",
@@ -210,7 +210,7 @@ export const DATA = {
       dates: "2025 - Present",
       active: true,
       description:
-        "Twelve camera projection models — pinhole and its two BAL variants, RadTan/Brown–Conrady, Kannala-Brandt, Fisheye62/624, double-sphere, EUCM, UCM, FOV and f-theta — with analytic projection, unprojection and Jacobians; distortion handled at projection time, no rectification by design. Includes exact and fitting conversions between models (convert_camera). [Read more on GitHub →](https://github.com/amin-abouee/apex-solver/tree/main/crates/apex-camera-models)",
+        "Twelve camera projection models — pinhole and its two BAL variants, RadTan/Brown–Conrady, Kannala-Brandt, Fisheye62/624, double-sphere, EUCM, UCM, FOV and f-theta — with analytic projection, unprojection and Jacobians; distortion handled at projection time, no rectification by design. 0.5.0 adds Project Aria fisheye models, exact and fitting conversions between models (convert_camera) and hierarchical errors. [Read more on GitHub →](https://github.com/amin-abouee/apex-solver/tree/main/crates/apex-camera-models)",
       technologies: ["Rust", "Computer Vision", "Camera Models"],
       links: [
         {
@@ -229,7 +229,7 @@ export const DATA = {
       dates: "2025 - Present",
       active: true,
       description:
-        "Lie group manifolds — SE(2), SE(3), SO(2), SO(3), SE₂(3), SGal(3), Sim(3) and Rⁿ — with analytic Jacobians, exp/log maps, adjoints and ⊞/⊟ operators, following manif conventions (w-first quaternions, [ρ, θ] twists). 0.4.0 ships a corrected SE(3)/SE₂(3) right-Jacobian calculus and SO3::slerp. [Read more on GitHub →](https://github.com/amin-abouee/apex-solver/tree/main/crates/apex-manifolds)",
+        "Lie group manifolds — SE(2), SE(3), SO(2), SO(3), SE₂(3), SGal(3), Sim(3) and Rⁿ — with analytic Jacobians, exp/log maps, adjoints and ⊞/⊟ operators, following manif conventions (w-first quaternions, [ρ, θ] twists). 0.5.0 fixes the SGal(3) group law and adds capability traits, checked constructors and hierarchical errors. [Read more on GitHub →](https://github.com/amin-abouee/apex-solver/tree/main/crates/apex-manifolds)",
       technologies: ["Rust", "Lie Groups", "State Estimation"],
       links: [
         {
@@ -248,7 +248,7 @@ export const DATA = {
       dates: "2025 - Present",
       active: true,
       description:
-        "unsafe-free I/O for robotics data: pose graphs (G2O, TORO, BAL), ROS 2 bag reading and writing (SQLite3 + MCAP) with ROS 1 ⇄ ROS 2 transcoding, live DDS subscription and a unified TUM/ASL trajectory loader — plus eleven CLI binaries. [Read more on GitHub →](https://github.com/amin-abouee/apex-solver/tree/main/crates/apex-io)",
+        "unsafe-free I/O for robotics data: pose graphs (G2O, TORO, BAL), a format-agnostic bag reader/writer over ROS 1, ROS 2 (SQLite3 + MCAP) and Meta VRS, ROS 1 ⇄ ROS 2 transcoding, live DDS subscription and a unified TUM/ASL/Nanos trajectory loader — plus eleven CLI binaries. [Read more on GitHub →](https://github.com/amin-abouee/apex-solver/tree/main/crates/apex-io)",
       technologies: ["Rust", "ROS 2", "Data Pipelines"],
       links: [
         {

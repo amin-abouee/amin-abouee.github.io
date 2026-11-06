@@ -255,6 +255,34 @@ export async function generateMetadata({
   return { title: crate.title, description: crate.tagline };
 }
 
+const PUBLISHED_CRATES = new Set([
+  "apex-solver",
+  "apex-manifolds",
+  "apex-camera-models",
+  "apex-io",
+]);
+
+function VersionBadge({ slug, version }: { slug: string; version: string }) {
+  const className =
+    "rounded-full border border-border bg-muted/40 px-2.5 py-0.5 font-mono text-xs text-muted-foreground";
+  if (!PUBLISHED_CRATES.has(slug)) return <span className={className}>v{version}</span>;
+  return (
+    <a
+      href={`https://crates.io/crates/${slug}`}
+      target="_blank"
+      rel="noopener noreferrer"
+      title={`${slug} on crates.io`}
+      className="inline-flex"
+    >
+      <img
+        src={`https://img.shields.io/crates/v/${slug}.svg?style=flat-square&logo=rust`}
+        alt={`${slug} v${version} on crates.io`}
+        className="h-5"
+      />
+    </a>
+  );
+}
+
 function ProjectIcon({ slug, title }: { slug: string; title: string }) {
   return (
     <span className="inline-flex shrink-0 overflow-hidden rounded-xl">
@@ -286,9 +314,7 @@ function CrateDetail({ page, slug }: { page: CratePage; slug: string }) {
         <div className="flex flex-wrap items-center gap-3">
           <ProjectIcon slug={slug} title={page.title} />
           <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl">{page.title}</h1>
-          <span className="rounded-full border border-border bg-muted/40 px-2.5 py-0.5 font-mono text-xs text-muted-foreground">
-            v{page.version}
-          </span>
+          <VersionBadge slug={slug} version={page.version} />
         </div>
         <p className="max-w-2xl text-balance text-base text-muted-foreground sm:text-lg">
           {page.tagline}
@@ -437,9 +463,7 @@ export default async function ProjectDetail({
         <div className="flex flex-wrap items-center gap-3">
           <ProjectIcon slug="apex-solver" title={apexSolver.title} />
           <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl">{apexSolver.title}</h1>
-          <span className="rounded-full border border-border bg-muted/40 px-2.5 py-0.5 font-mono text-xs text-muted-foreground">
-            v{apexSolver.version}
-          </span>
+          <VersionBadge slug="apex-solver" version={apexSolver.version} />
         </div>
         <p className="max-w-2xl text-balance text-base text-muted-foreground sm:text-lg">
           {apexSolver.tagline}

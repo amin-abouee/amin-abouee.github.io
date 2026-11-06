@@ -1,9 +1,10 @@
 // apex-solver project content and benchmark data.
-// Source: apex-solver README + doc/performance.md (1.5.0, measured 2026-09-29 on Mac mini M4).
+// Source: apex-solver README + doc/performance.md (benchmarks measured on 1.5.0,
+// 2026-09-29 on Mac mini M4; the crate is at 1.6.0).
 
 export const apexSolver = {
   title: "apex solver",
-  version: "1.5.0",
+  version: "1.6.0",
   tagline:
     "A high-performance Rust library for nonlinear least-squares optimization in SLAM & Computer Vision.",
   overview: [
@@ -21,9 +22,14 @@ export const apexSolver = {
   ],
   features: [
     {
-      title: "Broad factor library (~40 factors)",
+      title: "Broad factor library (~60 factors)",
       detail:
-        "IMU (SE₂(3)/SGal(3) preintegration), visual (projection, stereo, inverse-depth, essential matrix, smart projection), LiDAR (point/point, point-to-plane, GICP, LOAM edge), GNSS & navigation, range & bearing, motion models and marginalization.",
+        "IMU (SE₂(3)/SGal(3) preintegration, estimated gravity and scale), visual (projection, stereo, inverse-depth and inverse-range, essential matrix, smart projection, photometric), LiDAR (point/point, point-to-plane, scan-to-map, multi-frame planes, GICP, LOAM edge, submap fields), GNSS & navigation, range & bearing, motion models and marginalization.",
+    },
+    {
+      title: "Sliding-window & fixed-lag estimation",
+      detail:
+        "Marginalizer turns dropped states into an exact Gaussian prior (MarginalPriorFactor), first-estimate Jacobians keep it consistent, AggregateFactor compresses factors into their normal equations, and Problem removes variables and blocks — the windowed-smoother building blocks.",
     },
     {
       title: "Noise models",
@@ -43,7 +49,7 @@ export const apexSolver = {
     {
       title: "Bundle adjustment with intrinsics",
       detail:
-        "Simultaneous optimization of camera poses, 3D landmarks and camera intrinsics (9 camera models via apex-camera-models).",
+        "Simultaneous optimization of camera poses, 3D landmarks and camera intrinsics (12 camera models via apex-camera-models, including Project Aria fisheye).",
     },
     {
       title: "Explicit & implicit Schur solvers",
@@ -65,9 +71,9 @@ export const apexSolver = {
     hardware: "Apple Mac mini M4 (10 cores), 32 GB RAM, macOS",
     build: "Rust 1.98 release (opt-level=3, LTO); C++ -O3 -DNDEBUG -march=native, Eigen 5.0.1",
     versions:
-      "apex-solver 1.5.0 · Ceres 2.2.0 · GTSAM 4.3.0 · g2o 20241228 · factrs / tiny-solver (Cargo.lock)",
+      "apex-solver 1.6.0 · Ceres 2.2.0 · GTSAM 4.3.0 · g2o 20241228 · factrs / tiny-solver (Cargo.lock)",
     measured:
-      "2026-09-29 (apex rows at 1.5.0) · Ceres/GTSAM/g2o/factrs/tiny-solver rows carried from the 2026-09-27 session",
+      "2026-09-29 (apex rows at 1.5.0; the 1.6.0 release did not re-run the benchmarks) · Ceres/GTSAM/g2o/factrs/tiny-solver rows carried from the 2026-09-27 session",
     method:
       "Mean ± std over independent runs; timing covers the optimize() call only (setup and metric computation excluded). Cost and RMSE are computed by the benchmark harness from the input files for every solver, so values are comparable across implementations. Bundle adjustment uses a 10-minute timeout.",
   },
