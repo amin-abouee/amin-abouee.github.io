@@ -262,23 +262,33 @@ const PUBLISHED_CRATES = new Set([
   "apex-io",
 ]);
 
-function VersionBadge({ slug, version }: { slug: string; version: string }) {
+async function VersionBadge({ slug, version }: { slug: string; version: string }) {
   const className =
     "rounded-full border border-border bg-muted/40 px-2.5 py-0.5 font-mono text-xs text-muted-foreground";
   if (!PUBLISHED_CRATES.has(slug)) return <span className={className}>v{version}</span>;
+
+  let latest = version;
+  try {
+    const res = await fetch(`https://img.shields.io/crates/v/${slug}.json`, {
+      signal: AbortSignal.timeout(5000),
+    });
+    if (res.ok) {
+      const data = (await res.json()) as { message?: string };
+      latest = data.message?.replace(/^v/, "") || version;
+    }
+  } catch {
+    // keep the version from the data files when crates.io is unreachable
+  }
+
   return (
     <a
-      href={`https://crates.io/crates/${slug}`}
+      href={`https://crates.io/crates/${slug}/${latest}`}
       target="_blank"
       rel="noopener noreferrer"
-      title={`${slug} on crates.io`}
-      className="inline-flex"
+      title={`${slug} ${latest} on crates.io`}
+      className={`${className} transition-colors hover:bg-muted hover:text-foreground`}
     >
-      <img
-        src={`https://img.shields.io/crates/v/${slug}.svg?style=flat-square&logo=rust`}
-        alt={`${slug} v${version} on crates.io`}
-        className="h-5"
-      />
+      v{latest}
     </a>
   );
 }
